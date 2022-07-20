@@ -5,18 +5,17 @@ import java.awt.event.KeyEvent;
 
 public class KeyListener extends KeyAdapter {
 
+    private boolean Lobby = false;
     @Override
     public void keyPressed(KeyEvent e) {
-        if(!DynamicBeat.isMainScreen){
+        System.out.println("test");
+        if(Lobby){
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                Main.dynamicBeat.selectLeft();
+            } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                Main.dynamicBeat.selectRight();
+            }
             return;
-        }
-        System.out.println("d");
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            Main.dynamicBeat.selectLeft();
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            Main.dynamicBeat.selectRight();
-        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            Main.dynamicBeat.selectSpace();
         }
         if(DynamicBeat.game == null){
             return;
@@ -47,5 +46,9 @@ public class KeyListener extends KeyAdapter {
             DynamicBeat.game.releaseI();
 
         }
+    }
+
+    public void setLobby(boolean lobby) {
+        Lobby = lobby;
     }
 }

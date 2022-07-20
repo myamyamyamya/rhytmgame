@@ -36,7 +36,7 @@ public class DynamicBeat extends JFrame {
     private JButton HardButton = new JButton(HardButton1);
     private JButton backButton = new JButton(backButton1);
     JButton EbackButton = new JButton(new ImageIcon(Main.class.getResource("../../../resource/eback.png")));
-    public static boolean isMainScreen = false;
+    private boolean isMainScreen = false;
     private boolean isGameScreen = false;
     ArrayList<Track> tracklist = new ArrayList<Track>();
     private Image selectedImage;
@@ -44,6 +44,7 @@ public class DynamicBeat extends JFrame {
     private Music selectedMusic;
     private int nowSelected = 0;
     public static Game game;
+    private static KeyListener keyListener;
     public DynamicBeat() {
         tracklist.add(new Track("IcyxisT.png", "Icyxis.jpg", "IcyxisB.jpg", "Icyxis1", "Icyxis", "Raimukun - Icyxis"));
         tracklist.add(new Track("a secret puppet showT.png", "a secret puppet show.jpg", "a secret puppet show.jpg", "a secret puppet show1", "a secret puppet show", "plum - 비밀인형극"));
@@ -59,7 +60,8 @@ public class DynamicBeat extends JFrame {
         setVisible(true);
         setBackground(new Color(0, 0, 0, 0));
         setLayout(null);
-        addKeyListener(new KeyListener());
+        keyListener = new KeyListener();
+        addKeyListener(keyListener);
         Music intromusic = new Music("IntroMusic", true);
         intromusic.start();
         exitButton.setBounds(1560, 10, 30, 30);
@@ -114,54 +116,6 @@ public class DynamicBeat extends JFrame {
             }
         });
         add(startButton);
-        RightButton.setVisible(false);
-        RightButton.setBounds(1460, 470, 60, 60);
-        RightButton.setBorderPainted(false);
-        RightButton.setContentAreaFilled(false);
-        RightButton.setFocusPainted(false);
-        RightButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                RightButton.setIcon(RightButton2);
-                RightButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                RightButton.setIcon(RightButton1);
-                RightButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                selectRight();
-            }
-        });
-        add(RightButton);
-        LeftButton.setVisible(false);
-        LeftButton.setBounds(140, 470, 60, 60);
-        LeftButton.setBorderPainted(false);
-        LeftButton.setContentAreaFilled(false);
-        LeftButton.setFocusPainted(false);
-        LeftButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                LeftButton.setIcon(LeftButton2);
-                LeftButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                LeftButton.setIcon(LeftButton1);
-                LeftButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                selectLeft();
-            }
-        });
-        add(LeftButton);
         EasyButton.setVisible(false);
         EasyButton.setBounds(500, 740, 250, 67);
         EasyButton.setBorderPainted(false);
@@ -308,10 +262,6 @@ public class DynamicBeat extends JFrame {
         }
         selectTrack(nowSelected);
     }
-
-    public void selectSpace() {
-
-    }
     public void gameStart(int nowSelected, int difficulty){
         if(selectedMusic != null) {
             selectedMusic.close();
@@ -338,8 +288,7 @@ public class DynamicBeat extends JFrame {
         EasyButton.setVisible(visible);
         HardButton.setVisible(visible);
         isMainScreen = visible;
-    }
-    public void ErrorButton() {
-        EbackButton.setVisible(true);
+        keyListener.setLobby(visible);
+        System.out.println("sasd");
     }
 }
