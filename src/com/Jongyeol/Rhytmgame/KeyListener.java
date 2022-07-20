@@ -8,7 +8,6 @@ public class KeyListener extends KeyAdapter {
     private boolean Lobby = false;
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("test");
         if(Lobby){
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                 Main.dynamicBeat.selectLeft();

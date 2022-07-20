@@ -289,6 +289,5 @@ public class DynamicBeat extends JFrame {
         HardButton.setVisible(visible);
         isMainScreen = visible;
         keyListener.setLobby(visible);
-        System.out.println("sasd");
     }
 }
