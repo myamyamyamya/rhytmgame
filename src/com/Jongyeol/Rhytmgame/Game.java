@@ -64,7 +64,7 @@ public class Game extends Thread{
         g.setColor(Color.DARK_GRAY);
         g.drawString("W", 600, 760);
         g.drawString("E", 725, 760);
-        g.drawString("U", 845, 760);
+        g.drawString("U", 845, 760);as
         g.drawString("I", 975, 760);
     }
     public void pressw() {
