@@ -1,0 +1,13 @@
+메인 배경화면
+나가기 버튼
+곡 선텍 배경화면
+게임 시작 버튼
+다음곡 버튼
+이전곡 버튼
+난이도(Easy, Normal, Hard, Insane, Extreme, Master, Chaos)
+키(4키, 8키)
+클릭이 되고있을때, 안되고 있을때, 선택되었을때
+
+-Sound-
+메인화면 : https://youtu.be/Zi6tL5afFdQ
+키 : https://youtu.be/PXkIBbkbJCk
