@@ -13,10 +13,6 @@ public class DynamicBeat extends JFrame {
     private ImageIcon exitButton2 = new ImageIcon(Main.class.getResource("../../../resource/exit2.jpg"));
     private ImageIcon startButton1 = new ImageIcon(Main.class.getResource("../../../resource/start.png"));
     private ImageIcon startButton2 = new ImageIcon(Main.class.getResource("../../../resource/start2.png"));
-    private ImageIcon RightButton1 = new ImageIcon(Main.class.getResource("../../../resource/right.jpg"));
-    private ImageIcon RightButton2 = new ImageIcon(Main.class.getResource("../../../resource/right2.jpg"));
-    private ImageIcon LeftButton1 = new ImageIcon(Main.class.getResource("../../../resource/left.jpg"));
-    private ImageIcon LeftButton2 = new ImageIcon(Main.class.getResource("../../../resource/left2.jpg"));
     private ImageIcon EasyButton1 = new ImageIcon(Main.class.getResource("../../../resource/Easy.png"));
     private ImageIcon EasyButton2 = new ImageIcon(Main.class.getResource("../../../resource/Easy2.png"));
     private ImageIcon HardButton1 = new ImageIcon(Main.class.getResource("../../../resource/Hard.png"));
@@ -30,8 +26,6 @@ public class DynamicBeat extends JFrame {
     private JLabel menubar = new JLabel(new ImageIcon(Main.class.getResource("../../../resource/menubar.png")));
     private JButton exitButton = new JButton(exitButton1);
     private JButton startButton = new JButton(startButton1);
-    private JButton RightButton = new JButton(RightButton1);
-    private JButton LeftButton = new JButton(LeftButton1);
     private JButton EasyButton = new JButton(EasyButton1);
     private JButton HardButton = new JButton(HardButton1);
     private JButton backButton = new JButton(backButton1);
@@ -283,8 +277,6 @@ public class DynamicBeat extends JFrame {
         game.close();
     }
     public void MainScreenVisible(Boolean visible) {
-        LeftButton.setVisible(visible);
-        RightButton.setVisible(visible);
         EasyButton.setVisible(visible);
         HardButton.setVisible(visible);
         isMainScreen = visible;

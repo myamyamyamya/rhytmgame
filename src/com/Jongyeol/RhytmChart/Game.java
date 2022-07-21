@@ -67,7 +67,7 @@ public class Game extends Thread{
         g.drawString("U", 845, 760);
         g.drawString("I", 975, 760);
     }
-    public void pressw() {
+    public void pressW() {
         judge(1);
         noteRoutew = noteRoute2.getImage();
     }
@@ -127,9 +127,9 @@ public class Game extends Thread{
             Beat beat;
             int offset = -1;
             float bpm = -1;
-            for(int i = 0; i < File3.length; i++) {
-                if(File3[i].contains("offset: ")) {
-                    offset = makenumber.makenumber(File3[i].replaceAll("offset: ", ""));
+            for(String string : File3) {
+                if(string.contains("offset: ")) {
+                    offset = makenumber.makenumber(string.replaceAll("offset: ", ""));
                     System.out.println("offset: " + offset);
                     if(offset < 0){
                         gamemusic.close();
@@ -138,8 +138,8 @@ public class Game extends Thread{
                         Main.dynamicBeat.EbackButton.setVisible(true);
                     }
                 }
-                if(File3[i].contains("bpm: ")) {
-                    bpm = makenumber.makefloat(File3[i].replaceAll("bpm: ", ""));
+                if(string.contains("bpm: ")) {
+                    bpm = makenumber.makefloat(string.replaceAll("bpm: ", ""));
                     System.out.println("bpm : " + bpm);
                     if(bpm < 0){
                         gamemusic.close();
@@ -167,9 +167,9 @@ public class Game extends Thread{
             String[] File4;
             int X;
             double preTime = offset + 20 - ((double) 720 / Main.REAL_NOTE_SPPED);
-            for(int i = 0; i < File3.length; i++) {
-                if(File3[i].contains("bpm: ")) {
-                    bpm = makenumber.makefloat(File3[i].replaceAll("bpm: ", ""));
+            for(String string : File3) {
+                if(string.contains("bpm: ")) {
+                    bpm = makenumber.makefloat(string.replaceAll("bpm: ", ""));
                     System.out.println("bpm : " + bpm);
                     if(bpm < 0){
                         gamemusic.close();
@@ -180,7 +180,7 @@ public class Game extends Thread{
                     }
                     BEAT = 1 / (bpm / 60) * 4000;
                 } else {
-                    File4 = File3[i].split(" ");
+                    File4 = string.split(" ");
                     X = makenumber.makenumber(File4[0]);
                     beat = new Beat(X, preTime);
                     double addtime = makenumber.makedouble(File4[1]);
