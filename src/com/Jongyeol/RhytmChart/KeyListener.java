@@ -20,7 +20,7 @@ public class KeyListener extends KeyAdapter {
             return;
         }
         if(e.getKeyCode() == KeyEvent.VK_W) {
-            DynamicBeat.game.pressw();
+            DynamicBeat.game.pressW();
         } else if (e.getKeyCode() == KeyEvent.VK_E) {
             DynamicBeat.game.pressE();
         } else if (e.getKeyCode() == KeyEvent.VK_U) {
