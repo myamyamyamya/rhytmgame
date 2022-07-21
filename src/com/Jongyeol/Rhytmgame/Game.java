@@ -182,8 +182,10 @@ public class Game extends Thread{
                 } else {
                     File4 = string.split(" ");
                     X = makenumber.makenumber(File4[0]);
-                    beat = new Beat(X, preTime);
-                    beatList.add(beat);
+                    if(X != 0){
+                        beat = new Beat(X, preTime);
+                        beatList.add(beat);
+                    }
                     double addtime = makenumber.makedouble(File4[1]);
                     if(addtime > 0){
                         preTime += BEAT / addtime;
