@@ -22,6 +22,8 @@ public class DynamicBeat extends JFrame {
     private ImageIcon EbackButton1 = new ImageIcon(Main.class.getResource("../../../resource/eback.png"));
     private ImageIcon EbackButton2 = new ImageIcon(Main.class.getResource("../../../resource/eback2.png"));
     private ImageIcon introBackGround = new ImageIcon(Main.class.getResource("../../../resource/Frhythmgame.jpg"));
+    private ImageIcon selectBackGround = new ImageIcon(Main.class.getResource("../../../resource/selectgame.jpg"));
+    private ImageIcon endgameBackGround = new ImageIcon(Main.class.getResource("../../../resource/endgame.jpg"));
     private Image BackGround = introBackGround.getImage();
     private JLabel menubar = new JLabel(new ImageIcon(Main.class.getResource("../../../resource/menubar.png")));
     private JButton exitButton = new JButton(exitButton1);
@@ -84,7 +86,7 @@ public class DynamicBeat extends JFrame {
         add(exitButton);
         menubar.setBounds(0, 0, 1600, 50);
         add(menubar);
-        startButton.setBounds(750, 600, 100, 50);
+        startButton.setBounds(470, 514, 628, 172);
         startButton.setBorderPainted(false);
         startButton.setContentAreaFilled(false);
         startButton.setFocusPainted(false);
@@ -265,6 +267,7 @@ public class DynamicBeat extends JFrame {
         game.start();
         MainScreenVisible(false);
         backButton.setVisible(true);
+        BackGround = new ImageIcon(Main.class.getResource("../../../resource/" + tracklist.get(nowSelected).getGameImage())).getImage();
         isGameScreen = true;
         setFocusable(true);
     }
@@ -281,5 +284,8 @@ public class DynamicBeat extends JFrame {
         HardButton.setVisible(visible);
         isMainScreen = visible;
         keyListener.setLobby(visible);
+        if(visible){
+            BackGround = selectBackGround.getImage();
+        }
     }
 }
